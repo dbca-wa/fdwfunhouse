@@ -37,3 +37,7 @@ class UserComment(models.Model):
     user = models.ForeignKey(ForeignAuthUser, db_constraint=False)
     comment = models.TextField()
 
+# Model that can be used as AUTH_USER_MODEL in settings
+class LocalAuthUser(ForeignAuthUser):
+    models.OneToOneField(ForeignAuthUser, db_constraint=False)
+
